@@ -1,0 +1,56 @@
+.current-location {
+  display: block;
+}
+
+.main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.today-temp {
+  font-size: 48px;
+  line-height: 48px;
+  display: inline;
+}
+.units {
+  font-size: 16px;
+  font-weight: normal;
+  vertical-align: top;
+}
+
+a {
+  text-decoration: none;
+}
+.city {
+  font-size: 14px;
+}
+
+.detailed-forecast {
+  font-size: 16px;
+}
+
+.forecast-text {
+  font-size: 14px;
+}
+
+.forecast-temp {
+  font-size: 16px;
+}
+
+.mini-forecast {
+  font-size: 12px;
+}
+
+.forecast-day {
+  font-size: 12px;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+.forecast-image {
+  width: 100px;
+}

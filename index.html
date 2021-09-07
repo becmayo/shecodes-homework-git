@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bec's Weather</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+
+
+  <body>
+    <div class="container">
+      <div class="mx-auto mt-5" style="width: 350px">
+        <form class="row g-3" id="city-form">
+          <div class= "col-9">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="search your city"
+              id="city-input"
+              autocomplete="off"
+              autofocus= "on"
+            />
+          </div>
+          <div class = "col-3">
+            <button type="submit" class="btn btn-primary">Search</button>
+          </div>
+          </form>
+      </div>
+      <button type="button" class="btn btn-sm btn-success mx-auto mt-3 current-location" id="current-location">Current Location</button>
+      <div class="card mx-auto mt-3" style="width: 350px">
+        <div class="row g-0">
+          <div class="col-md-7">
+            <div class="card-body">
+              <h5 class="card-title today-temp" id="today-temp">24</h5>
+              <span class="units">
+                <a href="#" id="celsius">°C</a> | 
+                <a href="#" id="fahrenheit">°F</a>
+              </span>
+              <h6 class="card-subtitle mb-2 mt-2 text-muted city" id="day-time">
+                Tuesday 15:00
+              </h6>
+              <h6 class="card-subtitle mb-2 text-muted city" id="city-title">
+                Adelaide
+              </h6>
+              <p class="card-text" id="title-forecast">Sunny</p>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <img
+              class="img-fluid rounded-end main-image"
+              id="main-image"
+              src="images/sun-photo.jpeg"
+              alt="A bright sun in the sky with a couple white clouds"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="card mx-auto mt-3" style="width: 350px">
+        <div class="card-body">
+          <h5 class="card-title detailed-forecast">Details</h5>
+          <p class="card-text forecast-text">
+            Humidity: <span id="details-humidity">61</span>%
+            <br>
+            Pressure: <span id="details-pressure">1234</span> hPa
+            <br>
+            Wind Speed: <span id="details-wind">4</span> km/h
+            <br>
+          </p>
+        </div>
+      </div>
+      
+        <div class="row mt-3 g-1">
+          <div class="col">
+            <div class="card h-100">
+              <img src="images/sun-photo.jpeg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title forecast-temp">24°C
+                  <br>
+                  13°C
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted city mini-forecast">Sunny</h6>
+                <p class="card-text forecast-day">
+                 Today
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="images/cloudy-photo.jpeg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title forecast-temp">21°C
+                  <br>
+                  11°C
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted city mini-forecast">Overcast</h6>
+                <p class="card-text forecast-day">Tomorrow</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="images/cloudy-photo.jpeg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title forecast-temp">20°C
+                  <br>
+                  9°C
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted city mini-forecast">Overcast</h6>
+                <p class="card-text forecast-day">
+                  Monday 16th
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="images/sun-photo.jpeg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title forecast-temp">21°C
+                  <br>
+                  10°C
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted city mini-forecast">Sunny</h6>
+                <p class="card-text forecast-day">
+                  Tuesday 17th
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="images/storm-photo.jpeg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title forecast-temp">22°C
+                  <br>
+                  13°C
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted city mini-forecast">Thunderstorm</h6>
+                <p class="card-text forecast-day">
+                  Wednesday 18th
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="images/rain-photo.jpeg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title forecast-temp">19°C
+                  <br>
+                  9°C
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted city mini-forecast">Showers</h6>
+                <p class="card-text forecast-day">
+                  Thursday 19th
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="images/partly-cloudy-photo.jpeg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title forecast-temp">20°C
+                  <br>
+                  11°C
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted city mini-forecast">Partly cloudy</h6>
+                <p class="card-text forecast-day">
+                  Friday 20th
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src=src/index.js></script>
+  </body>
+</html>
