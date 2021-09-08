@@ -54,3 +54,10 @@ a {
 .forecast-image {
   width: 100px;
 }
+
+.credit {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 10px;
+}
